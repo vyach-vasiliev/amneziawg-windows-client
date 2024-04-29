@@ -8,9 +8,9 @@ package ui
 import (
 	"github.com/lxn/walk"
 
-	"golang.zx2c4.com/wireguard/windows/l18n"
-	"golang.zx2c4.com/wireguard/windows/manager"
-	"golang.zx2c4.com/wireguard/windows/updater"
+	"github.com/amnezia-vpn/amneziawg-windows-client/l18n"
+	"github.com/amnezia-vpn/amneziawg-windows-client/manager"
+	"github.com/amnezia-vpn/amneziawg-windows-client/updater"
 )
 
 type UpdatePage struct {
