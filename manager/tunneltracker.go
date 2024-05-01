@@ -20,8 +20,8 @@ import (
 	"golang.org/x/sys/windows/svc"
 	"golang.org/x/sys/windows/svc/mgr"
 
-	"golang.zx2c4.com/wireguard/windows/conf"
-	"golang.zx2c4.com/wireguard/windows/services"
+	"github.com/amnezia-vpn/awg-windows/conf"
+	"github.com/amnezia-vpn/awg-windows/services"
 )
 
 var (
@@ -280,7 +280,7 @@ func trackExistingTunnels() error {
 			continue
 		}
 		trackedTunnelsLock.Unlock()
-		serviceName, err := conf.ServiceNameOfTunnel(name)
+		serviceName, err := services.ServiceNameOfTunnel(name)
 		if err != nil {
 			continue
 		}

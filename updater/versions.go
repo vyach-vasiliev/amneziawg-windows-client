@@ -11,7 +11,7 @@ import (
 	"strconv"
 	"strings"
 
-	"golang.zx2c4.com/wireguard/windows/version"
+	"github.com/amnezia-vpn/amneziawg-windows-client/version"
 )
 
 func versionNewerThanUs(candidate string) (bool, error) {

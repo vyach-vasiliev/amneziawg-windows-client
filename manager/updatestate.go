@@ -10,9 +10,9 @@ import (
 	"time"
 	_ "unsafe"
 
-	"golang.zx2c4.com/wireguard/windows/services"
-	"golang.zx2c4.com/wireguard/windows/updater"
-	"golang.zx2c4.com/wireguard/windows/version"
+	"github.com/amnezia-vpn/amneziawg-windows-client/services"
+	"github.com/amnezia-vpn/amneziawg-windows-client/updater"
+	"github.com/amnezia-vpn/amneziawg-windows-client/version"
 )
 
 //go:linkname fastrandn runtime.fastrandn
