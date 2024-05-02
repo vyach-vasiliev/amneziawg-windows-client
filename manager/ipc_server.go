@@ -49,28 +49,41 @@ func (s *ManagerService) StoredConfig(tunnelName string) (*conf.Config, error) {
 }
 
 func (s *ManagerService) RuntimeConfig(tunnelName string) (*conf.Config, error) {
-	log.Printf("[%s] RuntimeConfig", tunnelName)
-	return nil, nil
-	/*storedConfig, err := conf.LoadFromName(tunnelName)
+	storedConfig, err := conf.LoadFromName(tunnelName)
 	if err != nil {
 		return nil, err
 	}
-	driverAdapter, err := findDriverAdapter(tunnelName)
+	pipe, err := connectTunnelServicePipe(tunnelName)
 	if err != nil {
 		return nil, err
 	}
-	runtimeConfig, err := driverAdapter.Configuration()
+	pipe.SetDeadline(time.Now().Add(time.Second * 2))
+	_, err = pipe.Write([]byte("get=1\n\n"))
+	if err == windows.ERROR_NO_DATA {
+		log.Println("IPC pipe closed unexpectedly, so reopening")
+		pipe.Unlock()
+		disconnectTunnelServicePipe(tunnelName)
+		pipe, err = connectTunnelServicePipe(tunnelName)
+		if err != nil {
+			return nil, err
+		}
+		pipe.SetDeadline(time.Now().Add(time.Second * 2))
+		_, err = pipe.Write([]byte("get=1\n\n"))
+	}
 	if err != nil {
-		driverAdapter.Unlock()
-		releaseDriverAdapter(tunnelName)
+		pipe.Unlock()
+		disconnectTunnelServicePipe(tunnelName)
 		return nil, err
 	}
-	conf := conf.FromDriverConfiguration(runtimeConfig, storedConfig)
-	driverAdapter.Unlock()
+	conf, err := conf.FromUAPI(pipe, storedConfig)
+	pipe.Unlock()
+	if err != nil {
+		return nil, err
+	}
 	if s.elevatedToken == 0 {
 		conf.Redact()
 	}
-	return conf, nil*/
+	return conf, nil
 }
 
 func (s *ManagerService) Start(tunnelName string) error {
