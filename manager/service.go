@@ -260,7 +260,6 @@ func (service *managerService) Execute(args []string, r <-chan svc.ChangeRequest
 		}()
 	}
 
-	go checkForUpdates()
 	go driver.UninstallLegacyWintun() // We uninstall opportunistically here, so that we don't have to carry around the uninstaller code forever.
 
 	var sessionsPointer *windows.WTS_SESSION_INFO
