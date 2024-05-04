@@ -18,7 +18,6 @@ import (
 
 	"golang.org/x/sys/windows"
 	"golang.org/x/sys/windows/svc"
-	"golang.zx2c4.com/wireguard/windows/driver"
 
 	"github.com/amnezia-vpn/amneziawg-windows-client/elevate"
 	"github.com/amnezia-vpn/amneziawg-windows-client/ringlogger"
@@ -259,8 +258,6 @@ func (service *managerService) Execute(args []string, r <-chan svc.ChangeRequest
 			procsGroup.Done()
 		}()
 	}
-
-	go driver.UninstallLegacyWintun() // We uninstall opportunistically here, so that we don't have to carry around the uninstaller code forever.
 
 	var sessionsPointer *windows.WTS_SESSION_INFO
 	var count uint32
