@@ -348,7 +348,7 @@ loop:
 }
 
 func Run() error {
-	return svc.Run("WireGuardManager", &managerService{})
+	return svc.Run("AmneziaWGManager", &managerService{})
 }
 
 func LogFile(createRoot bool) (string, error) {

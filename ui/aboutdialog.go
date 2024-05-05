@@ -12,7 +12,6 @@ import (
 	"github.com/lxn/walk"
 	"github.com/lxn/win"
 	"golang.org/x/sys/windows"
-	"golang.zx2c4.com/wireguard/windows/driver"
 
 	"github.com/amnezia-vpn/amneziawg-windows-client/l18n"
 	"github.com/amnezia-vpn/amneziawg-windows-client/version"
@@ -50,7 +49,7 @@ func runAboutDialog(owner walk.Form) error {
 		showingAboutDialog = nil
 	}()
 	disposables.Add(showingAboutDialog)
-	showingAboutDialog.SetTitle(l18n.Sprintf("About WireGuard"))
+	showingAboutDialog.SetTitle(l18n.Sprintf("About AmneziaWG"))
 	showingAboutDialog.SetLayout(vbl)
 	if icon, err := loadLogoIcon(32); err == nil {
 		showingAboutDialog.SetIcon(icon)
@@ -82,7 +81,7 @@ func runAboutDialog(owner walk.Form) error {
 	if logo, err := loadLogoIcon(128); err == nil {
 		iv.SetImage(logo)
 	}
-	iv.Accessibility().SetName(l18n.Sprintf("WireGuard logo image"))
+	iv.Accessibility().SetName(l18n.Sprintf("AmneziaWG logo image"))
 
 	wgLbl, err := walk.NewTextLabel(showingAboutDialog)
 	if err != nil {
@@ -91,14 +90,14 @@ func runAboutDialog(owner walk.Form) error {
 	wgFont, _ := walk.NewFont("Segoe UI", 16, walk.FontBold)
 	wgLbl.SetFont(wgFont)
 	wgLbl.SetTextAlignment(walk.AlignHCenterVNear)
-	wgLbl.SetText("WireGuard")
+	wgLbl.SetText("AmneziaWG")
 
 	detailsLbl, err := walk.NewTextLabel(showingAboutDialog)
 	if err != nil {
 		return err
 	}
 	detailsLbl.SetTextAlignment(walk.AlignHCenterVNear)
-	detailsLbl.SetText(l18n.Sprintf("App version: %s\nDriver version: %s\nGo version: %s\nOperating system: %s\nArchitecture: %s", version.Number, driver.Version(), strings.TrimPrefix(runtime.Version(), "go"), version.OsName(), version.Arch()))
+	detailsLbl.SetText(l18n.Sprintf("App version: %s\nWintun version: %s\nGo version: %s\nOperating system: %s\nArchitecture: %s", version.Number, version.WintunVersion(), strings.TrimPrefix(runtime.Version(), "go"), version.OsName(), version.Arch()))
 
 	copyrightLbl, err := walk.NewTextLabel(showingAboutDialog)
 	if err != nil {
