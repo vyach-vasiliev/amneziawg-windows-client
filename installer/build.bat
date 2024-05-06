@@ -68,7 +68,7 @@ if exist .deps\prepared goto :build
 :skipsign
 	"%WIX%bin\candle" %WIX_CANDLE_FLAGS% -dWIREGUARD_PLATFORM="%~1" -out "%~1\wireguard.wixobj" -arch %3 wireguard.wxs || exit /b %errorlevel%
 	echo [+] Linking %1
-	"%WIX%bin\light" %WIX_LIGHT_FLAGS% -out "dist\wireguard-%~1-%WIREGUARD_VERSION%.msi" "%~1\wireguard.wixobj" || exit /b %errorlevel%
+	"%WIX%bin\light" %WIX_LIGHT_FLAGS% -out "dist\amneziawg-%~1-%WIREGUARD_VERSION%.msi" "%~1\wireguard.wixobj" || exit /b %errorlevel%
 	goto :eof
 
 :error

@@ -8,7 +8,6 @@ package ui
 import (
 	"sort"
 	"strings"
-	"time"
 
 	"github.com/amnezia-vpn/amneziawg-windows-client/l18n"
 	"github.com/amnezia-vpn/amneziawg-windows-client/manager"
@@ -54,7 +53,7 @@ func NewTray(mtw *ManageTunnelsWindow) (*Tray, error) {
 func (tray *Tray) setup() error {
 	tray.clicked = tray.onManageTunnels
 
-	tray.SetToolTip(l18n.Sprintf("WireGuard: Deactivated"))
+	tray.SetToolTip(l18n.Sprintf("AmneziaWG: Deactivated"))
 	tray.SetVisible(true)
 	if icon, err := loadLogoIcon(16); err == nil {
 		tray.SetIcon(icon)
@@ -84,7 +83,7 @@ func (tray *Tray) setup() error {
 		{label: l18n.Sprintf("&Manage tunnels…"), handler: tray.onManageTunnels, enabled: true, defawlt: true},
 		{label: l18n.Sprintf("&Import tunnel(s) from file…"), handler: tray.onImport, enabled: true, hidden: !IsAdmin},
 		{separator: true},
-		{label: l18n.Sprintf("&About WireGuard…"), handler: tray.onAbout, enabled: true},
+		{label: l18n.Sprintf("&About AmneziaWG…"), handler: tray.onAbout, enabled: true},
 		{label: l18n.Sprintf("E&xit"), handler: onQuit, enabled: true, hidden: !IsAdmin},
 	} {
 		var action *walk.Action
@@ -263,18 +262,18 @@ func (tray *Tray) onTunnelChange(tunnel *manager.Tunnel, state, globalState mana
 				case manager.TunnelStarted:
 					if !wasChecked {
 						icon, _ := iconWithOverlayForState(state, 128)
-						tray.ShowCustom(l18n.Sprintf("WireGuard Activated"), l18n.Sprintf("The %s tunnel has been activated.", tunnel.Name), icon)
+						tray.ShowCustom(l18n.Sprintf("AmneziaWG Activated"), l18n.Sprintf("The %s tunnel has been activated.", tunnel.Name), icon)
 					}
 
 				case manager.TunnelStopped:
 					if wasChecked {
 						icon, _ := loadSystemIcon("imageres", -31, 128) // TODO: this icon isn't very good...
-						tray.ShowCustom(l18n.Sprintf("WireGuard Deactivated"), l18n.Sprintf("The %s tunnel has been deactivated.", tunnel.Name), icon)
+						tray.ShowCustom(l18n.Sprintf("AmneziaWG Deactivated"), l18n.Sprintf("The %s tunnel has been deactivated.", tunnel.Name), icon)
 					}
 				}
 			}
 		} else if !tray.mtw.Visible() {
-			tray.ShowError(l18n.Sprintf("WireGuard Tunnel Error"), err.Error())
+			tray.ShowError(l18n.Sprintf("AmneziaWG Tunnel Error"), err.Error())
 		}
 		tray.setTunnelState(tunnel, state)
 	})
@@ -288,7 +287,7 @@ func (tray *Tray) updateGlobalState(globalState manager.TunnelState) {
 	actions := tray.ContextMenu().Actions()
 	statusAction := actions.At(0)
 
-	tray.SetToolTip(l18n.Sprintf("WireGuard: %s", textForState(globalState, true)))
+	tray.SetToolTip(l18n.Sprintf("AmneziaWG: %s", textForState(globalState, true)))
 	stateText := textForState(globalState, false)
 	stateIcon, err := iconForState(globalState, 16)
 	if err == nil {
@@ -337,38 +336,6 @@ func (tray *Tray) setTunnelState(tunnel *manager.Tunnel, state manager.TunnelSta
 
 	case manager.TunnelStopped:
 		tunnelAction.SetChecked(false)
-	}
-}
-
-func (tray *Tray) UpdateFound() {
-	action := walk.NewAction()
-	action.SetText(l18n.Sprintf("An Update is Available!"))
-	menuIcon, _ := loadShieldIcon(16)
-	action.SetImage(menuIcon)
-	action.SetDefault(true)
-	showUpdateTab := func() {
-		if !tray.mtw.Visible() {
-			tray.mtw.tunnelsPage.listView.SelectFirstActiveTunnel()
-		}
-		tray.mtw.tabs.SetCurrentIndex(2)
-		raise(tray.mtw.Handle())
-	}
-	action.Triggered().Attach(showUpdateTab)
-	tray.clicked = showUpdateTab
-	tray.ContextMenu().Actions().Insert(tray.ContextMenu().Actions().Len()-2, action)
-
-	showUpdateBalloon := func() {
-		icon, _ := loadShieldIcon(128)
-		tray.ShowCustom(l18n.Sprintf("WireGuard Update Available"), l18n.Sprintf("An update to WireGuard is now available. You are advised to update as soon as possible."), icon)
-	}
-
-	timeSinceStart := time.Now().Sub(startTime)
-	if timeSinceStart < time.Second*3 {
-		time.AfterFunc(time.Second*3-timeSinceStart, func() {
-			tray.mtw.Synchronize(showUpdateBalloon)
-		})
-	} else {
-		showUpdateBalloon()
 	}
 }
 

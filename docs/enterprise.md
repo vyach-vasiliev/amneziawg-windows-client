@@ -46,13 +46,13 @@ The `PreUp`, `PostUp`, `PreDown`, and `PostDown` configuration options may be sp
 The manager service may be installed or uninstalled using the commands:
 
 ```text
-> wireguard /installmanagerservice
-> wireguard /uninstallmanagerservice
+> amneziawg /installmanagerservice
+> amneziawg /uninstallmanagerservice
 ```
 
-This creates a service called `WireGuardManager`, which can be controlled using standard Windows service management utilites, such as `services.msc` or [`sc`](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/sc-query).
+This creates a service called `AmneziaWGManager`, which can be controlled using standard Windows service management utilites, such as `services.msc` or [`sc`](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/sc-query).
 
-When executing `wireguard` with no arguments, the command first attempts to show the UI if the manager service is already running; otherwise it starts the manager service, waits for it to create a UI in the system tray, and then shows the main manager window. Therefore, `wireguard /installmanagerservice` is suitable for silent installation, whereas `wireguard` alone is suitable for interactive startup.
+When executing `amneziawg` with no arguments, the command first attempts to show the UI if the manager service is already running; otherwise it starts the manager service, waits for it to create a UI in the system tray, and then shows the main manager window. Therefore, `amneziawg /installmanagerservice` is suitable for silent installation, whereas `amneziawg` alone is suitable for interactive startup.
 
 The manager service monitors `%ProgramFiles%\WireGuard\Data\Configurations\` for the addition of new `.conf` files. Upon seeing one, it encrypts the file to a `.conf.dpapi` file, makes it unreadable to users other than Local System, confers the administrator only the ability to remove it, and then deletes the original unencrypted file. (Configurations can always be _exported_ later using the export feature of the UI.) Using this, configurations can programmatically be added to the secure store of the manager service simply by copying them into that directory.
 
@@ -95,7 +95,7 @@ Or, to log the status of that command:
 One could have Task Scheduler run it daily at 3am:
 
 ```text
-> schtasks /create /f /ru SYSTEM /sc daily /tn "WireGuard Update" /tr "%PROGRAMFILES%\WireGuard\wireguard.exe /update" /st 03:00
+> schtasks /create /f /ru SYSTEM /sc daily /tn "WireGuard Update" /tr "%PROGRAMFILES%\WireGuard\amneziawg.exe /update" /st 03:00
 ```
 
 ### Driver Removal

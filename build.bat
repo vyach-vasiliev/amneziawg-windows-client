@@ -49,10 +49,10 @@ if exist .deps\prepared goto :render
 	if "%SigningCertificate%"=="" goto :success
 	if "%TimestampServer%"=="" goto :success
 	echo [+] Signing
-	signtool sign /sha1 "%SigningCertificate%" /fd sha256 /tr "%TimestampServer%" /td sha256 /d WireGuard x86\wireguard.exe x86\wg.exe amd64\wireguard.exe amd64\wg.exe arm64\wireguard.exe arm64\wg.exe || goto :error
+	signtool sign /sha1 "%SigningCertificate%" /fd sha256 /tr "%TimestampServer%" /td sha256 /d WireGuard x86\amneziawg.exe x86\wg.exe amd64\amneziawg.exe amd64\wg.exe arm64\amneziawg.exe arm64\wg.exe || goto :error
 
 :success
-	echo [+] Success. Launch wireguard.exe.
+	echo [+] Success. Launch amneziawg.exe.
 	exit /b 0
 
 :download
@@ -72,7 +72,7 @@ if exist .deps\prepared goto :render
 	echo [+] Assembling resources %1
 	%~2-w64-mingw32-windres -DWIREGUARD_VERSION_ARRAY=%WIREGUARD_VERSION_ARRAY% -DWIREGUARD_VERSION_STR=%WIREGUARD_VERSION% -i resources.rc -o "resources_%~3.syso" -O coff -c 65001 || exit /b %errorlevel%
 	echo [+] Building program %1
-	go build -tags load_wgnt_from_rsrc -ldflags="-H windowsgui -s -w" -trimpath -buildvcs=false -v -o "%~1\wireguard.exe" || exit /b 1
+	go build -tags load_wgnt_from_rsrc -ldflags="-H windowsgui -s -w" -trimpath -buildvcs=false -v -o "%~1\amneziawg.exe" || exit /b 1
 	if not exist "%~1\wg.exe" (
 		echo [+] Building command line tools %1
 		del .deps\src\*.exe .deps\src\*.o .deps\src\wincompat\*.o .deps\src\wincompat\*.lib 2> NUL

@@ -19,7 +19,6 @@ import (
 	"golang.org/x/sys/windows"
 	"golang.org/x/sys/windows/svc"
 
-	"github.com/amnezia-vpn/amneziawg-windows-client/updater"
 	"github.com/amnezia-vpn/awg-windows/conf"
 	"github.com/amnezia-vpn/awg-windows/services"
 )
@@ -49,28 +48,41 @@ func (s *ManagerService) StoredConfig(tunnelName string) (*conf.Config, error) {
 }
 
 func (s *ManagerService) RuntimeConfig(tunnelName string) (*conf.Config, error) {
-	log.Printf("[%s] RuntimeConfig", tunnelName)
-	return nil, nil
-	/*storedConfig, err := conf.LoadFromName(tunnelName)
+	storedConfig, err := conf.LoadFromName(tunnelName)
 	if err != nil {
 		return nil, err
 	}
-	driverAdapter, err := findDriverAdapter(tunnelName)
+	pipe, err := connectTunnelServicePipe(tunnelName)
 	if err != nil {
 		return nil, err
 	}
-	runtimeConfig, err := driverAdapter.Configuration()
+	pipe.SetDeadline(time.Now().Add(time.Second * 2))
+	_, err = pipe.Write([]byte("get=1\n\n"))
+	if err == windows.ERROR_NO_DATA {
+		log.Println("IPC pipe closed unexpectedly, so reopening")
+		pipe.Unlock()
+		disconnectTunnelServicePipe(tunnelName)
+		pipe, err = connectTunnelServicePipe(tunnelName)
+		if err != nil {
+			return nil, err
+		}
+		pipe.SetDeadline(time.Now().Add(time.Second * 2))
+		_, err = pipe.Write([]byte("get=1\n\n"))
+	}
 	if err != nil {
-		driverAdapter.Unlock()
-		releaseDriverAdapter(tunnelName)
+		pipe.Unlock()
+		disconnectTunnelServicePipe(tunnelName)
 		return nil, err
 	}
-	conf := conf.FromDriverConfiguration(runtimeConfig, storedConfig)
-	driverAdapter.Unlock()
+	conf, err := conf.FromUAPI(pipe, storedConfig)
+	pipe.Unlock()
+	if err != nil {
+		return nil, err
+	}
 	if s.elevatedToken == 0 {
 		conf.Redact()
 	}
-	return conf, nil*/
+	return conf, nil
 }
 
 func (s *ManagerService) Start(tunnelName string) error {
@@ -256,26 +268,6 @@ func (s *ManagerService) Quit(stopTunnelsOnQuit bool) (alreadyQuit bool, err err
 	return false, nil
 }
 
-func (s *ManagerService) UpdateState() UpdateState {
-	return updateState
-}
-
-func (s *ManagerService) Update() {
-	if s.elevatedToken == 0 {
-		return
-	}
-	progress := updater.DownloadVerifyAndExecute(uintptr(s.elevatedToken))
-	go func() {
-		for {
-			dp := <-progress
-			IPCServerNotifyUpdateProgress(dp)
-			if dp.Complete || dp.Error != nil {
-				return
-			}
-		}
-	}()
-}
-
 func (s *ManagerService) ServeConn(reader io.Reader, writer io.Writer) {
 	decoder := gob.NewDecoder(reader)
 	encoder := gob.NewEncoder(writer)
@@ -430,14 +422,6 @@ func (s *ManagerService) ServeConn(reader io.Reader, writer io.Writer) {
 			if err != nil {
 				return
 			}
-		case UpdateStateMethodType:
-			updateState := s.UpdateState()
-			err = encoder.Encode(updateState)
-			if err != nil {
-				return
-			}
-		case UpdateMethodType:
-			s.Update()
 		default:
 			return
 		}
@@ -512,14 +496,6 @@ func IPCServerNotifyTunnelChange(name string, state TunnelState, err error) {
 
 func IPCServerNotifyTunnelsChange() {
 	notifyAll(TunnelsChangeNotificationType, false)
-}
-
-func IPCServerNotifyUpdateFound(state UpdateState) {
-	notifyAll(UpdateFoundNotificationType, false, state)
-}
-
-func IPCServerNotifyUpdateProgress(dp updater.DownloadProgress) {
-	notifyAll(UpdateProgressNotificationType, true, dp.Activity, dp.BytesDownloaded, dp.BytesTotal, errToString(dp.Error), dp.Complete)
 }
 
 func IPCServerNotifyManagerStopping() {

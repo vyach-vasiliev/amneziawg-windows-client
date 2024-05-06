@@ -12,13 +12,13 @@ C:\Projects\wireguard-windows> build
 
 ### Running
 
-After you've built the application, run `amd64\wireguard.exe` or `x86\wireguard.exe` to install the manager service and show the UI.
+After you've built the application, run `amd64\amneziawg.exe` or `x86\amneziawg.exe` to install the manager service and show the UI.
 
 ```text
-C:\Projects\wireguard-windows> amd64\wireguard.exe
+C:\Projects\amneziawg-windows-client> amd64\amneziawg.exe
 ```
 
-Since WireGuard requires a driver to be installed, and this generally requires a valid Microsoft signature, you may benefit from first installing a release of WireGuard for Windows from the official [wireguard.com](https://www.wireguard.com/install/) builds, which bundles a Microsoft-signed driver, and then subsequently run your own wireguard.exe. Alternatively, you can craft your own installer using the `quickinstall.bat` script.
+Since WireGuard requires a driver to be installed, and this generally requires a valid Microsoft signature, you may benefit from first installing a release of WireGuard for Windows from the official [wireguard.com](https://www.wireguard.com/install/) builds, which bundles a Microsoft-signed driver, and then subsequently run your own amneziawg.exe. Alternatively, you can craft your own installer using the `quickinstall.bat` script.
 
 ### Optional: Localizing
 
