@@ -5,9 +5,9 @@
 Windows 10 64-bit or Windows Server 2019, and Git for Windows is required. The build script will take care of downloading, verifying, and extracting the right versions of the various dependencies:
 
 ```text
-C:\Projects> git clone https://git.zx2c4.com/wireguard-windows
-C:\Projects> cd wireguard-windows
-C:\Projects\wireguard-windows> build
+C:\Projects> git clone https://github.com/amnezia-vpn/amneziawg-windows-client
+C:\Projects> cd amneziawg-windows-client
+C:\Projects\amneziawg-windows-client> build
 ```
 
 ### Running
@@ -18,26 +18,26 @@ After you've built the application, run `amd64\amneziawg.exe` or `x86\amneziawg.
 C:\Projects\amneziawg-windows-client> amd64\amneziawg.exe
 ```
 
-Since WireGuard requires a driver to be installed, and this generally requires a valid Microsoft signature, you may benefit from first installing a release of WireGuard for Windows from the official [wireguard.com](https://www.wireguard.com/install/) builds, which bundles a Microsoft-signed driver, and then subsequently run your own amneziawg.exe. Alternatively, you can craft your own installer using the `quickinstall.bat` script.
+Alternatively, you can craft your own installer using the `quickinstall.bat` script.
 
 ### Optional: Localizing
 
-To translate WireGuard UI to your language:
+To translate AmneziaWG UI to your language:
 
 1. Upgrade `resources.rc` accordingly. Follow the pattern.
 
 2. Make a new directory in `locales\` containing the language ID:
 
   ```text
-  C:\Projects\wireguard-windows> mkdir locales\<langID>
+  C:\Projects\amneziawg-windows-client> mkdir locales\<langID>
   ```
 
 3. Configure and run `build` to prepare initial `locales\<langID>\messages.gotext.json` file:
 
    ```text
-   C:\Projects\wireguard-windows> set GoGenerate=yes
-   C:\Projects\wireguard-windows> build
-   C:\Projects\wireguard-windows> copy locales\<langID>\out.gotext.json locales\<langID>\messages.gotext.json
+   C:\Projects\amneziawg-windows-client> set GoGenerate=yes
+   C:\Projects\amneziawg-windows-client> build
+   C:\Projects\amneziawg-windows-client> copy locales\<langID>\out.gotext.json locales\<langID>\messages.gotext.json
    ```
 
 4. Translate `locales\<langID>\messages.gotext.json`. See other language message files how to translate messages and how to tackle plural. For this step, the project is currently using [CrowdIn](https://crowdin.com/translate/WireGuard); please make sure your translations make it there in order to be added here.
@@ -51,8 +51,8 @@ To translate WireGuard UI to your language:
 The installer build script will take care of downloading, verifying, and extracting the right versions of the various dependencies:
 
 ```text
-C:\Projects\wireguard-windows> cd installer
-C:\Projects\wireguard-windows\installer> build
+C:\Projects\amneziawg-windows-client> cd installer
+C:\Projects\amneziawg-windows-client\installer> build
 ```
 
 ### Optional: Signing Binaries
@@ -72,8 +72,8 @@ You must first have Mingw and ImageMagick installed.
 
 ```text
 $ sudo apt install mingw-w64 imagemagick
-$ git clone https://git.zx2c4.com/wireguard-windows
-$ cd wireguard-windows
+$ git clone https://github.com/amnezia-vpn/amneziawg-windows-client
+$ cd amneziawg-windows-client
 $ make
 ```
 
@@ -83,16 +83,16 @@ You can deploy the 64-bit build to an SSH host specified by the `DEPLOYMENT_HOST
 $ make deploy
 ```
 
-### [`wg(8)`](https://git.zx2c4.com/wireguard-tools/about/src/man/wg.8) Support for Windows
+### [`awg(8)`](https://github.com/amnezia-vpn/amneziawg-tools/blob/master/src/man/wg.8) Support for Windows
 
-The command line utility [`wg(8)`](https://git.zx2c4.com/wireguard-tools/about/src/man/wg.8) works well on Windows. Being a Unix-centric project, it compiles with a Makefile and MingW:
+The command line utility [`awg(8)`](https://github.com/amnezia-vpn/amneziawg-tools/blob/master/src/man/wg.8) works well on Windows. Being a Unix-centric project, it compiles with a build script:
 
 ```text
-$ git clone https://git.zx2c4.com/wireguard-tools
-$ PLATFORM=windows make -C wireguard-tools/src
-$ stat wireguard-tools/src/wg.exe
+$ git clone https://github.com/amnezia-vpn/amneziawg-tools
+$ cd amneziawg-tools
+$ build
 ```
 
-It interacts with WireGuard instances run by the main WireGuard for Windows program.
+It interacts with AmneziaWG instances run by the main AmneziaWG for Windows program.
 
 When building on Windows, the aforementioned `build.bat` script takes care of building this.
