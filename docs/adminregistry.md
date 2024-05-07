@@ -3,10 +3,10 @@
 These are advanced configuration knobs that admins can set to do unusual things
 that are not recommended. There is no UI to enable these, and no such thing is
 planned. These registry keys may also be removed at some point in the future.
-The uninstaller will clean up the entirety of `HKLM\Software\WireGuard`. Use
+The uninstaller will clean up the entirety of `HKLM\Software\AmneziaWG`. Use
 at your own risk, and please make sure you know what you're doing.
 
-#### `HKLM\Software\WireGuard\LimitedOperatorUI`
+#### `HKLM\Software\AmneziaWG\LimitedOperatorUI`
 
 When this key is set to `DWORD(1)`, the UI will be launched on desktops of
 users belonging to the Network Configuration Operators builtin group
@@ -20,20 +20,20 @@ users belonging to the Network Configuration Operators builtin group
 However, basic functionality such as starting and stopping tunnels remains intact.
 
 ```
-> reg add HKLM\Software\WireGuard /v LimitedOperatorUI /t REG_DWORD /d 1 /f
+> reg add HKLM\Software\AmneziaWG /v LimitedOperatorUI /t REG_DWORD /d 1 /f
 ```
 
-#### `HKLM\Software\WireGuard\DangerousScriptExecution`
+#### `HKLM\Software\AmneziaWG\DangerousScriptExecution`
 
 When this key is set to `DWORD(1)`, the tunnel service will execute the commands
 specified in the `PreUp`, `PostUp`, `PreDown`, and `PostDown` options of a
 tunnel configuration. Note that this execution is done as the Local System user,
 which runs with the highest permissions on the operating system, and is therefore
 a real target of malware. Therefore, you should enable this option only with the
-utmost trepidation. Rather than use `%i`, WireGuard for Windows instead sets the
-environment variable `WIREGUARD_TUNNEL_NAME` to the name of the tunnel when
+utmost trepidation. Rather than use `%i`, AmneziaWG for Windows instead sets the
+environment variable `AMNEZIAWG_TUNNEL_NAME` to the name of the tunnel when
 executing these scripts.
 
 ```
-> reg add HKLM\Software\WireGuard /v DangerousScriptExecution /t REG_DWORD /d 1 /f
+> reg add HKLM\Software\AmneziaWG /v DangerousScriptExecution /t REG_DWORD /d 1 /f
 ```
