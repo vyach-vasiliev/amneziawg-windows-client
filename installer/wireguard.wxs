@@ -65,7 +65,7 @@
 		-->
 		<Directory Id="TARGETDIR" Name="SourceDir">
 			<Directory Id="$(var.PlatformProgramFilesFolder)">
-				<Directory Id="WireGuardFolder" Name="WireGuard" />
+				<Directory Id="WireGuardFolder" Name="AmneziaWG" />
 			</Directory>
 			<Directory Id="ProgramMenuFolder" />
 		</Directory>

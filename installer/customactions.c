@@ -15,7 +15,7 @@
 #include <tchar.h>
 
 #define MANAGER_SERVICE_NAME TEXT("AmneziaWGManager")
-#define TUNNEL_SERVICE_PREFIX TEXT("WireGuardTunnel$")
+#define TUNNEL_SERVICE_PREFIX TEXT("AmneziaWGTunnel$")
 
 enum log_level { LOG_LEVEL_INFO, LOG_LEVEL_WARN, LOG_LEVEL_ERR, LOG_LEVEL_MSIERR };
 
@@ -38,15 +38,15 @@ static void log_messagef(MSIHANDLE installer, enum log_level level, const TCHAR 
 
 	switch (level) {
 	case LOG_LEVEL_INFO:
-		template = TEXT("WireGuard: [1]");
+		template = TEXT("AmneziaWG: [1]");
 		type = INSTALLMESSAGE_INFO;
 		break;
 	case LOG_LEVEL_WARN:
-		template = TEXT("WireGuard warning: [1]");
+		template = TEXT("AmneziaWG warning: [1]");
 		type = INSTALLMESSAGE_INFO;
 		break;
 	case LOG_LEVEL_ERR:
-		template = TEXT("WireGuard error: [1]");
+		template = TEXT("AmneziaWG error: [1]");
 		type = INSTALLMESSAGE_ERROR;
 		break;
 	case LOG_LEVEL_MSIERR:
@@ -259,7 +259,7 @@ __declspec(dllexport) UINT __stdcall LaunchApplicationAndAbort(MSIHANDLE install
 	if (!path[0] || !PathAppend(path, TEXT("amneziawg.exe")))
 		goto out;
 	log_messagef(installer, LOG_LEVEL_INFO, TEXT("Launching %1"), path);
-	if (!CreateProcess(path, TEXT("wireguard"), NULL, NULL, TRUE, 0, NULL, NULL, &si, &pi)) {
+	if (!CreateProcess(path, TEXT("amneziawg"), NULL, NULL, TRUE, 0, NULL, NULL, &si, &pi)) {
 		log_errorf(installer, LOG_LEVEL_WARN, GetLastError(), TEXT("Failed to create \"%1\" process"), path);
 		goto out;
 	}
