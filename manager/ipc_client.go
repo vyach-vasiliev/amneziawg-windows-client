@@ -11,7 +11,7 @@ import (
 	"os"
 	"sync"
 
-	"github.com/amnezia-vpn/awg-windows/conf"
+	"github.com/amnezia-vpn/amneziawg-windows/conf"
 )
 
 type Tunnel struct {
