@@ -6,7 +6,6 @@ setlocal enabledelayedexpansion
 set BUILDDIR=%~dp0
 set PATH=%BUILDDIR%.deps\llvm-mingw-20231128-ucrt-x86_64\bin;%BUILDDIR%.deps\go\bin;%BUILDDIR%.deps;%PATH%
 set PATHEXT=.exe
-set TOOLSPATH=.deps\amneziawg-tools-e42813caac0b1846810f20435b699234ef5f7ead\src
 cd /d %BUILDDIR% || exit /b 1
 
 if exist .deps\prepared goto :render
@@ -20,7 +19,7 @@ if exist .deps\prepared goto :render
 	call :download imagemagick.zip https://download.wireguard.com/windows-toolchain/distfiles/ImageMagick-7.0.8-42-portable-Q16-x64.zip 584e069f56456ce7dde40220948ff9568ac810688c892c5dfb7f6db902aa05aa "convert.exe colors.xml delegates.xml" || goto :error
 	rem Mirror of https://sourceforge.net/projects/ezwinports/files/make-4.2.1-without-guile-w32-bin.zip
 	call :download make.zip https://download.wireguard.com/windows-toolchain/distfiles/make-4.2.1-without-guile-w32-bin.zip 30641be9602712be76212b99df7209f4f8f518ba764cf564262bc9d6e4047cc7 "--strip-components 1 bin" || goto :error
-	call :download amneziawg-tools.zip https://github.com/amnezia-vpn/amneziawg-tools/archive/e42813caac0b1846810f20435b699234ef5f7ead.zip 7c1e6097e3e8c278dd90dde33a78a54119f5b1ee143ce9fb553700eb7d1001a3 || goto :error
+	call :download amneziawg-tools.zip https://github.com/amnezia-vpn/amneziawg-tools/archive/e42813caac0b1846810f20435b699234ef5f7ead.zip 7c1e6097e3e8c278dd90dde33a78a54119f5b1ee143ce9fb553700eb7d1001a3 "--exclude wg-quick --strip-components 1" || goto :error
 	call :download wintun.zip https://www.wintun.net/builds/wintun-0.14.1.zip 07c256185d6ee3652e09fa55c0b673e2624b565e02c4b9091c79ca7d2f24ef51 || goto :error
 	copy /y NUL prepared > NUL || goto :error
 	cd .. || goto :error
@@ -76,10 +75,10 @@ if exist .deps\prepared goto :render
 	go build -tags load_wgnt_from_rsrc -ldflags="-H windowsgui -s -w" -trimpath -buildvcs=false -v -o "%~1\amneziawg.exe" || exit /b 1
 	if not exist "%~1\awg.exe" (
 		echo [+] Building command line tools %1
-		del %TOOLSPATH%\*.exe %TOOLSPATH%\*.o %TOOLSPATH%\wincompat\*.o %TOOLSPATH%\wincompat\*.lib 2> NUL
+		del .deps\src\*.exe .deps\src\*.o .deps\src\wincompat\*.o .deps\src\wincompat\*.lib 2> NUL
 		set LDFLAGS=-s
-		make --no-print-directory -C %TOOLSPATH% PLATFORM=windows CC=%~2-w64-mingw32-gcc WINDRES=%~2-w64-mingw32-windres V=1 RUNSTATEDIR= SYSTEMDUNITDIR= -j%NUMBER_OF_PROCESSORS% || exit /b 1
-		move /Y %TOOLSPATH%\wg.exe "%~1\awg.exe" > NUL || exit /b 1
+		make --no-print-directory -C .deps\src PLATFORM=windows CC=%~2-w64-mingw32-gcc WINDRES=%~2-w64-mingw32-windres V=1 RUNSTATEDIR= SYSTEMDUNITDIR= -j%NUMBER_OF_PROCESSORS% || exit /b 1
+		move /Y .deps\src\wg.exe "%~1\awg.exe" > NUL || exit /b 1
 	)
 	if not exist "%~1\wintun.dll" (
 		copy /Y ".deps\wintun\bin\%~1\wintun.dll" "%~1\wintun.dll" > NUL || exit /b 1
