@@ -11,8 +11,8 @@ import (
 
 	"golang.org/x/sys/windows"
 
-	"github.com/amnezia-vpn/amnezia-wg/ipc/namedpipe"
-	"github.com/amnezia-vpn/awg-windows/services"
+	"github.com/amnezia-vpn/amneziawg-go/ipc/namedpipe"
+	"github.com/amnezia-vpn/amneziawg-windows/services"
 )
 
 type connectedTunnel struct {
