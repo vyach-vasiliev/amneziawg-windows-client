@@ -28,7 +28,7 @@ type ManageTunnelsWindow struct {
 }
 
 const (
-	manageWindowWindowClass = "WireGuard UI - Manage Tunnels"
+	manageWindowWindowClass = "AmneziaWG UI - Manage Tunnels"
 	raiseMsg                = win.WM_USER + 0x3510
 	aboutWireGuardCmd       = 0x37
 )
@@ -55,7 +55,7 @@ func NewManageTunnelsWindow() (*ManageTunnelsWindow, error) {
 	}
 
 	mtw := new(ManageTunnelsWindow)
-	mtw.SetName("WireGuard")
+	mtw.SetName("AmneziaWG")
 
 	err = walk.InitWindow(mtw, nil, manageWindowWindowClass, win.WS_OVERLAPPEDWINDOW, win.WS_EX_CONTROLPARENT)
 	if err != nil {
