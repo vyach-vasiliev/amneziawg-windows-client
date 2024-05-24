@@ -363,7 +363,7 @@ __declspec(dllexport) UINT __stdcall KillWireGuardProcesses(MSIHANDLE installer)
 
 	log_messagef(installer, LOG_LEVEL_INFO, TEXT("Detecting running processes"));
 
-	if (PathCombine(executable, process_path, TEXT("wg.exe")) && calculate_file_id(executable, &file_ids[file_ids_len]))
+	if (PathCombine(executable, process_path, TEXT("awg.exe")) && calculate_file_id(executable, &file_ids[file_ids_len]))
 		++file_ids_len;
 	if (PathCombine(executable, process_path, TEXT("amneziawg.exe")) && calculate_file_id(executable, &file_ids[file_ids_len]))
 		++file_ids_len;
@@ -375,7 +375,7 @@ __declspec(dllexport) UINT __stdcall KillWireGuardProcesses(MSIHANDLE installer)
 		goto out;
 
 	for (bool ret = Process32First(snapshot, &entry); ret; ret = Process32Next(snapshot, &entry)) {
-		if (_tcsicmp(entry.szExeFile, TEXT("amneziawg.exe")) && _tcsicmp(entry.szExeFile, TEXT("wg.exe")))
+		if (_tcsicmp(entry.szExeFile, TEXT("amneziawg.exe")) && _tcsicmp(entry.szExeFile, TEXT("awg.exe")))
 			continue;
 		process = OpenProcess(PROCESS_TERMINATE | PROCESS_QUERY_LIMITED_INFORMATION, false, entry.th32ProcessID);
 		if (!process)
