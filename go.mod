@@ -3,8 +3,8 @@ module github.com/amnezia-vpn/amneziawg-windows-client
 go 1.20
 
 require (
-	github.com/amnezia-vpn/amneziawg-go v0.2.6-0.20240513181042-3ddf952973fa
-	github.com/amnezia-vpn/amneziawg-windows v0.1.4-0.20240513192417-5a6ec8de0628
+	github.com/amnezia-vpn/amneziawg-go v0.2.8
+	github.com/amnezia-vpn/amneziawg-windows v0.1.4-0.20240526104134-db18f2297e5e
 	github.com/lxn/walk v0.0.0-20210112085537-c389da54e794
 	github.com/lxn/win v0.0.0-20210218163916-a377121e959e
 	golang.org/x/sys v0.17.0
