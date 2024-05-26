@@ -1,7 +1,7 @@
-github.com/amnezia-vpn/amneziawg-go v0.2.6-0.20240513181042-3ddf952973fa h1:Hc2kYyeugpMCCi9Bmtay9rzsfnZGq3pxgjZ9ArQj3ts=
-github.com/amnezia-vpn/amneziawg-go v0.2.6-0.20240513181042-3ddf952973fa/go.mod h1:12g0XRbFeGbpXvuCmBOV21YxLWSFnUFJnwgrzyHBUyk=
-github.com/amnezia-vpn/amneziawg-windows v0.1.4-0.20240513192417-5a6ec8de0628 h1:Bsdfv0+kC3G7uUZNuJH4eQvUZxxBSlcSRLX/4OKpmtQ=
-github.com/amnezia-vpn/amneziawg-windows v0.1.4-0.20240513192417-5a6ec8de0628/go.mod h1:W7x2dkXgZmTa4dHx9c0SozeMVtV9OtNcaWPUSBurENQ=
+github.com/amnezia-vpn/amneziawg-go v0.2.8 h1:J8PPx+hylx5nNZ5U1+ECFj9noGkcm2ThmSV9rBNDgy8=
+github.com/amnezia-vpn/amneziawg-go v0.2.8/go.mod h1:12g0XRbFeGbpXvuCmBOV21YxLWSFnUFJnwgrzyHBUyk=
+github.com/amnezia-vpn/amneziawg-windows v0.1.4-0.20240526104134-db18f2297e5e h1:pLoZBHiMDKdGScjrcX6q/yIwm8JDzCVo805H33+8Crg=
+github.com/amnezia-vpn/amneziawg-windows v0.1.4-0.20240526104134-db18f2297e5e/go.mod h1:3lkvRI7XTPifPvnAyNoI8eLjSSpKXyrnUu7KlnWlCnA=
 github.com/google/btree v1.0.1 h1:gK4Kx5IaGY9CD5sPJ36FHiBJ6ZXl0kilRiiCj+jdYp4=
 github.com/tevino/abool/v2 v2.1.0 h1:7w+Vf9f/5gmKT4m4qkayb33/92M+Um45F2BkHOR+L/c=
 github.com/tevino/abool/v2 v2.1.0/go.mod h1:+Lmlqk6bHDWHqN1cbxqhwEAwMPXgc8I1SDEamtseuXY=
