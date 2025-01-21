@@ -43,7 +43,7 @@ if exist .deps\prepared goto :build
 	if "%SigningCertificate%"=="" goto :success
 	if "%TimestampServer%"=="" goto :success
 	echo [+] Signing
-	signtool sign /sha1 "%SigningCertificate%" /fd sha256 /tr "%TimestampServer%" /td sha256 /d "WireGuard Setup" "dist\wireguard-*-%WIREGUARD_VERSION%.msi" || goto :error
+        signtool sign /sha1 "%SigningCertificate%" /fd sha256 /tr "%TimestampServer%" /td sha256 /d "AmneziaWG Setup" "dist\amneziawg-*-%WIREGUARD_VERSION%.msi" || goto :error
 
 :success
 	echo [+] Success.
@@ -64,7 +64,7 @@ if exist .deps\prepared goto :build
 	if "%SigningCertificate%"=="" goto :skipsign
 	if "%TimestampServer%"=="" goto :skipsign
 	echo [+] Signing %1
-	signtool sign /sha1 "%SigningCertificate%" /fd sha256 /tr "%TimestampServer%" /td sha256 /d "WireGuard Setup Custom Actions" "%~1\customactions.dll" || exit /b 1
+        signtool sign /sha1 "%SigningCertificate%" /fd sha256 /tr "%TimestampServer%" /td sha256 /d "AmneziaWG Setup Custom Actions" "%~1\customactions.dll" || exit /b 1
 :skipsign
 	"%WIX%bin\candle" %WIX_CANDLE_FLAGS% -dWIREGUARD_PLATFORM="%~1" -out "%~1\wireguard.wixobj" -arch %3 wireguard.wxs || exit /b %errorlevel%
 	echo [+] Linking %1

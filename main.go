@@ -101,7 +101,7 @@ func checkForWow64() {
 		fatalf("Unable to determine whether the process is running under WOW64: %v", err)
 	}
 	if b {
-		fatalf("You must use the native version of WireGuard on this computer.")
+                fatalf("You must use the native version of AmneziaWG on this computer.")
 	}
 }
 
@@ -114,14 +114,14 @@ func checkForAdminGroup() {
 	}
 	defer processToken.Close()
 	if !elevate.TokenIsElevatedOrElevatable(processToken) {
-		fatalf("WireGuard may only be used by users who are a member of the Builtin %s group.", elevate.AdminGroupName())
+                fatalf("AmneziaWG may only be used by users who are a member of the Builtin %s group.", elevate.AdminGroupName())
 	}
 }
 
 func checkForAdminDesktop() {
 	adminDesktop, err := elevate.IsAdminDesktop()
 	if !adminDesktop && err == nil {
-		fatalf("WireGuard is running, but the UI is only accessible from desktops of the Builtin %s group.", elevate.AdminGroupName())
+                fatalf("AmneziaWG is running, but the UI is only accessible from desktops of the Builtin %s group.", elevate.AdminGroupName())
 	}
 }
 
@@ -180,7 +180,7 @@ func main() {
 		}
 		checkForAdminDesktop()
 		time.Sleep(30 * time.Second)
-		fatalf("WireGuard system tray icon did not appear after 30 seconds.")
+                fatalf("AmneziaWG system tray icon did not appear after 30 seconds.")
 		return
 	case "/uninstallmanagerservice":
 		if len(os.Args) != 2 {
