@@ -60,9 +60,9 @@
             ]
         },
         {
-            "id": "You must use the native version of WireGuard on this computer.",
-            "message": "You must use the native version of WireGuard on this computer.",
-            "translation": "Tällä tietokoneella voi käyttää vain WireGuardin natiivia versiota.",
+            "id": "You must use the native version of AmneziaWG on this computer.",
+            "message": "You must use the native version of AmneziaWG on this computer.",
+            "translation": "Tällä tietokoneella voi käyttää vain AmneziaWGin natiivia versiota.",
             "translatorComment": "Copied from source."
         },
         {
@@ -82,9 +82,9 @@
             ]
         },
         {
-            "id": "WireGuard may only be used by users who are a member of the Builtin {AdminGroupName} group.",
-            "message": "WireGuard may only be used by users who are a member of the Builtin {AdminGroupName} group.",
-            "translation": "Ainoastaan sisäänrakennetun ryhmän {AdminGroupName} jäsenet voivat käyttää WireGuardia.",
+            "id": "AmneziaWG may only be used by users who are a member of the Builtin {AdminGroupName} group.",
+            "message": "AmneziaWG may only be used by users who are a member of the Builtin {AdminGroupName} group.",
+            "translation": "Ainoastaan sisäänrakennetun ryhmän {AdminGroupName} jäsenet voivat käyttää AmneziaWGia.",
             "translatorComment": "Copied from source.",
             "placeholders": [
                 {
@@ -98,9 +98,9 @@
             ]
         },
         {
-            "id": "WireGuard is running, but the UI is only accessible from desktops of the Builtin {AdminGroupName} group.",
-            "message": "WireGuard is running, but the UI is only accessible from desktops of the Builtin {AdminGroupName} group.",
-            "translation": "WireGuard on käynnissä, mutta käyttöliittymä on vain sisäänrakennetun ryhmän {AdminGroupName} käytettävissä.",
+            "id": "AmneziaWG is running, but the UI is only accessible from desktops of the Builtin {AdminGroupName} group.",
+            "message": "AmneziaWG is running, but the UI is only accessible from desktops of the Builtin {AdminGroupName} group.",
+            "translation": "AmneziaWG on käynnissä, mutta käyttöliittymä on vain sisäänrakennetun ryhmän {AdminGroupName} käytettävissä.",
             "translatorComment": "Copied from source.",
             "placeholders": [
                 {
@@ -114,9 +114,9 @@
             ]
         },
         {
-            "id": "WireGuard system tray icon did not appear after 30 seconds.",
-            "message": "WireGuard system tray icon did not appear after 30 seconds.",
-            "translation": "WireGuardin ilmoitusalueen kuvake ei ilmestynyt 30 sekunnin jälkeen.",
+            "id": "AmneziaWG system tray icon did not appear after 30 seconds.",
+            "message": "AmneziaWG system tray icon did not appear after 30 seconds.",
+            "translation": "AmneziaWGin ilmoitusalueen kuvake ei ilmestynyt 30 sekunnin jälkeen.",
             "translatorComment": "Copied from source."
         },
         {
@@ -1066,9 +1066,9 @@
             "translatorComment": "Copied from source."
         },
         {
-            "id": "&About WireGuard…",
-            "message": "&About WireGuard…",
-            "translation": "Tietoja WireGu&ardista…",
+            "id": "&About AmneziaWG…",
+            "message": "&About AmneziaWG…",
+            "translation": "Tietoja &AmneziaWGista…",
             "translatorComment": "Copied from source."
         },
         {
@@ -1110,15 +1110,15 @@
             ]
         },
         {
-            "id": "WireGuard Detection Error",
-            "message": "WireGuard Detection Error",
-            "translation": "WireGuardin tunnistusvirhe",
+            "id": "AmneziaWG Detection Error",
+            "message": "AmneziaWG Detection Error",
+            "translation": "AmneziaWGin tunnistusvirhe",
             "translatorComment": "Copied from source."
         },
         {
-            "id": "Unable to wait for WireGuard window to appear: {Err}",
-            "message": "Unable to wait for WireGuard window to appear: {Err}",
-            "translation": "Ei voida odottaa WireGuardin ikkunan ilmestymistä: {Err}",
+            "id": "Unable to wait for AmneziaWG window to appear: {Err}",
+            "message": "Unable to wait for AmneziaWG window to appear: {Err}",
+            "translation": "Ei voida odottaa AmneziaWGin ikkunan ilmestymistä: {Err}",
             "translatorComment": "Copied from source.",
             "placeholders": [
                 {
@@ -1132,9 +1132,9 @@
             ]
         },
         {
-            "id": "WireGuard: Deactivated",
-            "message": "WireGuard: Deactivated",
-            "translation": "WireGuard: deaktivoitu",
+            "id": "AmneziaWG: Deactivated",
+            "message": "AmneziaWG: Deactivated",
+            "translation": "AmneziaWG: deaktivoitu",
             "translatorComment": "Copied from source."
         },
         {
@@ -1174,9 +1174,9 @@
             "translatorComment": "Copied from source."
         },
         {
-            "id": "WireGuard Activated",
-            "message": "WireGuard Activated",
-            "translation": "WireGuard aktivoitu",
+            "id": "AmneziaWG Activated",
+            "message": "AmneziaWG Activated",
+            "translation": "AmneziaWG aktivoitu",
             "translatorComment": "Copied from source."
         },
         {
@@ -1196,9 +1196,9 @@
             ]
         },
         {
-            "id": "WireGuard Deactivated",
-            "message": "WireGuard Deactivated",
-            "translation": "WireGuard deaktivoitu",
+            "id": "AmneziaWG Deactivated",
+            "message": "AmneziaWG Deactivated",
+            "translation": "AmneziaWG deaktivoitu",
             "translatorComment": "Copied from source."
         },
         {
@@ -1218,15 +1218,15 @@
             ]
         },
         {
-            "id": "WireGuard Tunnel Error",
-            "message": "WireGuard Tunnel Error",
-            "translation": "WireGuard tunnelivirhe",
+            "id": "AmneziaWG Tunnel Error",
+            "message": "AmneziaWG Tunnel Error",
+            "translation": "AmneziaWG tunnelivirhe",
             "translatorComment": "Copied from source."
         },
         {
-            "id": "WireGuard: {TextForStateglobalState_true}",
-            "message": "WireGuard: {TextForStateglobalState_true}",
-            "translation": "WireGuard: {TextForStateglobalState_true}",
+            "id": "AmneziaWG: {TextForStateglobalState_true}",
+            "message": "AmneziaWG: {TextForStateglobalState_true}",
+            "translation": "AmneziaWG: {TextForStateglobalState_true}",
             "translatorComment": "Copied from source.",
             "placeholders": [
                 {
@@ -1640,9 +1640,9 @@
             "translatorComment": "Copied from source."
         },
         {
-            "id": "Error Exiting WireGuard",
-            "message": "Error Exiting WireGuard",
-            "translation": "Virhe WireGuardista poistuttaessa",
+            "id": "Error Exiting AmneziaWG",
+            "message": "Error Exiting AmneziaWG",
+            "translation": "Virhe AmneziaWGista poistuttaessa",
             "translatorComment": "Copied from source."
         },
         {

@@ -114,9 +114,9 @@
             ]
         },
         {
-            "id": "WireGuard system tray icon did not appear after 30 seconds.",
-            "message": "WireGuard system tray icon did not appear after 30 seconds.",
-            "translation": "La icona de WireGuard de la safata del sistema no ha aparegut després de 30 segons.",
+            "id": "AmneziaWG system tray icon did not appear after 30 seconds.",
+            "message": "AmneziaWG system tray icon did not appear after 30 seconds.",
+            "translation": "La icona de AmneziaWG de la safata del sistema no ha aparegut després de 30 segons.",
             "translatorComment": "Copied from source."
         },
         {
@@ -1110,15 +1110,15 @@
             ]
         },
         {
-            "id": "WireGuard Detection Error",
-            "message": "WireGuard Detection Error",
-            "translation": "Error en detectar WireGuard",
+            "id": "AmneziaWG Detection Error",
+            "message": "AmneziaWG Detection Error",
+            "translation": "Error en detectar AmneziaWG",
             "translatorComment": "Copied from source."
         },
         {
-            "id": "Unable to wait for WireGuard window to appear: {Err}",
-            "message": "Unable to wait for WireGuard window to appear: {Err}",
-            "translation": "No ha estat possible esperar que aparegui la finestra de WireGuard: {Err}",
+            "id": "Unable to wait for AmneziaWG window to appear: {Err}",
+            "message": "Unable to wait for AmneziaWG window to appear: {Err}",
+            "translation": "No ha estat possible esperar que aparegui la finestra de AmneziaWG: {Err}",
             "translatorComment": "Copied from source.",
             "placeholders": [
                 {
@@ -1132,9 +1132,9 @@
             ]
         },
         {
-            "id": "WireGuard: Deactivated",
-            "message": "WireGuard: Deactivated",
-            "translation": "WireGuard: Desactivat",
+            "id": "AmneziaWG: Deactivated",
+            "message": "AmneziaWG: Deactivated",
+            "translation": "AmneziaWG: Desactivat",
             "translatorComment": "Copied from source."
         },
         {
@@ -1174,9 +1174,9 @@
             "translatorComment": "Copied from source."
         },
         {
-            "id": "WireGuard Activated",
-            "message": "WireGuard Activated",
-            "translation": "WireGuard Activat",
+            "id": "AmneziaWG Activated",
+            "message": "AmneziaWG Activated",
+            "translation": "AmneziaWG Activat",
             "translatorComment": "Copied from source."
         },
         {
@@ -1196,9 +1196,9 @@
             ]
         },
         {
-            "id": "WireGuard Deactivated",
-            "message": "WireGuard Deactivated",
-            "translation": "WireGuard Desactivat",
+            "id": "AmneziaWG Deactivated",
+            "message": "AmneziaWG Deactivated",
+            "translation": "AmneziaWG Desactivat",
             "translatorComment": "Copied from source."
         },
         {
@@ -1218,15 +1218,15 @@
             ]
         },
         {
-            "id": "WireGuard Tunnel Error",
-            "message": "WireGuard Tunnel Error",
-            "translation": "Error en el túnel de WireGuard",
+            "id": "AmneziaWG Tunnel Error",
+            "message": "AmneziaWG Tunnel Error",
+            "translation": "Error en el túnel de AmneziaWG",
             "translatorComment": "Copied from source."
         },
         {
-            "id": "WireGuard: {TextForStateglobalState_true}",
-            "message": "WireGuard: {TextForStateglobalState_true}",
-            "translation": "WireGuard: {TextForStateglobalState_true}",
+            "id": "AmneziaWG: {TextForStateglobalState_true}",
+            "message": "AmneziaWG: {TextForStateglobalState_true}",
+            "translation": "AmneziaWG: {TextForStateglobalState_true}",
             "translatorComment": "Copied from source.",
             "placeholders": [
                 {
@@ -1278,15 +1278,15 @@
             "translatorComment": "Copied from source."
         },
         {
-            "id": "WireGuard Update Available",
-            "message": "WireGuard Update Available",
-            "translation": "Actualització de WireGuard disponible",
+            "id": "AmneziaWG Update Available",
+            "message": "AmneziaWG Update Available",
+            "translation": "Actualització de AmneziaWG disponible",
             "translatorComment": "Copied from source."
         },
         {
-            "id": "An update to WireGuard is now available. You are advised to update as soon as possible.",
-            "message": "An update to WireGuard is now available. You are advised to update as soon as possible.",
-            "translation": "Hi ha una actualització de WireGuard. Es recomana actualitzar el més aviat millor.",
+            "id": "An update to AmneziaWG is now available. You are advised to update as soon as possible.",
+            "message": "An update to AmneziaWG is now available. You are advised to update as soon as possible.",
+            "translation": "Hi ha una actualització de AmneziaWG. Es recomana actualitzar el més aviat millor.",
             "translatorComment": "Copied from source."
         },
         {
@@ -1702,9 +1702,9 @@
             "translatorComment": "Copied from source."
         },
         {
-            "id": "Unable to exit service due to: {Err}. You may want to stop WireGuard from the service manager.",
-            "message": "Unable to exit service due to: {Err}. You may want to stop WireGuard from the service manager.",
-            "translation": "No s'ha pogut sortir del servei a causa de l'error: {Err}. Pot intentar aturar WireGuard des de l'administrador de serveis.",
+            "id": "Unable to exit service due to: {Err}. You may want to stop AmneziaWG from the service manager.",
+            "message": "Unable to exit service due to: {Err}. You may want to stop AmneziaWG from the service manager.",
+            "translation": "No s'ha pogut sortir del servei a causa de l'error: {Err}. Pot intentar aturar AmneziaWG des de l'administrador de serveis.",
             "translatorComment": "Copied from source.",
             "placeholders": [
                 {

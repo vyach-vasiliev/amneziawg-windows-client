@@ -60,9 +60,9 @@
             ]
         },
         {
-            "id": "You must use the native version of WireGuard on this computer.",
-            "message": "You must use the native version of WireGuard on this computer.",
-            "translation": "Anda harus menggunakan WireGuard versi asli pada komputer ini.",
+            "id": "You must use the native version of AmneziaWG on this computer.",
+            "message": "You must use the native version of AmneziaWG on this computer.",
+            "translation": "Anda harus menggunakan AmneziaWG versi asli pada komputer ini.",
             "translatorComment": "Copied from source."
         },
         {
@@ -565,9 +565,9 @@
             "translatorComment": "Copied from source."
         },
         {
-            "id": "WireGuard logo image",
-            "message": "WireGuard logo image",
-            "translation": "Gambar logo WireGuard",
+            "id": "AmneziaWG logo image",
+            "message": "AmneziaWG logo image",
+            "translation": "Gambar logo AmneziaWG",
             "translatorComment": "Copied from source."
         },
         {

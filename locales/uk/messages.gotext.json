@@ -1096,9 +1096,9 @@
             "translatorComment": "Copied from source."
         },
         {
-            "id": "&About WireGuard…",
-            "message": "&About WireGuard…",
-            "translation": "&Про WireGuard…",
+            "id": "&About AmneziaWG…",
+            "message": "&About AmneziaWG…",
+            "translation": "Про &AmneziaWG…",
             "translatorComment": "Copied from source."
         },
         {
@@ -1140,15 +1140,15 @@
             ]
         },
         {
-            "id": "WireGuard Detection Error",
-            "message": "WireGuard Detection Error",
-            "translation": "Помилка виявлення WireGuard",
+            "id": "AmneziaWG Detection Error",
+            "message": "AmneziaWG Detection Error",
+            "translation": "Помилка виявлення AmneziaWG",
             "translatorComment": "Copied from source."
         },
         {
-            "id": "Unable to wait for WireGuard window to appear: {Err}",
-            "message": "Unable to wait for WireGuard window to appear: {Err}",
-            "translation": "Не вдалося дочекатися появи вікна WireGuard: {Err}",
+            "id": "Unable to wait for AmneziaWG window to appear: {Err}",
+            "message": "Unable to wait for AmneziaWG window to appear: {Err}",
+            "translation": "Не вдалося дочекатися появи вікна AmneziaWG: {Err}",
             "translatorComment": "Copied from source.",
             "placeholders": [
                 {
@@ -1162,9 +1162,9 @@
             ]
         },
         {
-            "id": "WireGuard: Deactivated",
-            "message": "WireGuard: Deactivated",
-            "translation": "WireGuard: Вимкнений",
+            "id": "AmneziaWG: Deactivated",
+            "message": "AmneziaWG: Deactivated",
+            "translation": "AmneziaWG: Вимкнений",
             "translatorComment": "Copied from source."
         },
         {
@@ -1204,9 +1204,9 @@
             "translatorComment": "Copied from source."
         },
         {
-            "id": "WireGuard Activated",
-            "message": "WireGuard Activated",
-            "translation": "WireGuard активовано",
+            "id": "AmneziaWG Activated",
+            "message": "AmneziaWG Activated",
+            "translation": "AmneziaWG активовано",
             "translatorComment": "Copied from source."
         },
         {
@@ -1226,9 +1226,9 @@
             ]
         },
         {
-            "id": "WireGuard Deactivated",
-            "message": "WireGuard Deactivated",
-            "translation": "WireGuard деактивовано",
+            "id": "AmneziaWG Deactivated",
+            "message": "AmneziaWG Deactivated",
+            "translation": "AmneziaWG деактивовано",
             "translatorComment": "Copied from source."
         },
         {
@@ -1248,15 +1248,15 @@
             ]
         },
         {
-            "id": "WireGuard Tunnel Error",
-            "message": "WireGuard Tunnel Error",
-            "translation": "Помилка тунелю WireGuard",
+            "id": "AmneziaWG Tunnel Error",
+            "message": "AmneziaWG Tunnel Error",
+            "translation": "Помилка тунелю AmneziaWG",
             "translatorComment": "Copied from source."
         },
         {
-            "id": "WireGuard: {TextForStateglobalState_true}",
-            "message": "WireGuard: {TextForStateglobalState_true}",
-            "translation": "WireGuard: {TextForStateglobalState_true}",
+            "id": "AmneziaWG: {TextForStateglobalState_true}",
+            "message": "AmneziaWG: {TextForStateglobalState_true}",
+            "translation": "AmneziaWG: {TextForStateglobalState_true}",
             "translatorComment": "Copied from source.",
             "placeholders": [
                 {
@@ -1308,15 +1308,15 @@
             "translatorComment": "Copied from source."
         },
         {
-            "id": "WireGuard Update Available",
-            "message": "WireGuard Update Available",
-            "translation": "Доступне оновлення WireGuard",
+            "id": "AmneziaWG Update Available",
+            "message": "AmneziaWG Update Available",
+            "translation": "Доступне оновлення AmneziaWG",
             "translatorComment": "Copied from source."
         },
         {
-            "id": "An update to WireGuard is now available. You are advised to update as soon as possible.",
-            "message": "An update to WireGuard is now available. You are advised to update as soon as possible.",
-            "translation": "Оновлення до WireGuard доступне. Рекомендуємо оновити якомога швидше.",
+            "id": "An update to AmneziaWG is now available. You are advised to update as soon as possible.",
+            "message": "An update to AmneziaWG is now available. You are advised to update as soon as possible.",
+            "translation": "Оновлення до AmneziaWG доступне. Рекомендуємо оновити якомога швидше.",
             "translatorComment": "Copied from source."
         },
         {
@@ -1756,14 +1756,14 @@
             ]
         },
         {
-            "id": "Error Exiting WireGuard",
-            "message": "Error Exiting WireGuard",
-            "translation": "Помилка при виході з WireGuard",
+            "id": "Error Exiting AmneziaWG",
+            "message": "Error Exiting AmneziaWG",
+            "translation": "Помилка при виході з AmneziaWG",
             "translatorComment": "Copied from source."
         },
         {
-            "id": "Unable to exit service due to: {Err}. You may want to stop WireGuard from the service manager.",
-            "message": "Unable to exit service due to: {Err}. You may want to stop WireGuard from the service manager.",
+            "id": "Unable to exit service due to: {Err}. You may want to stop AmneziaWG from the service manager.",
+            "message": "Unable to exit service due to: {Err}. You may want to stop AmneziaWG from the service manager.",
             "translation": "Не вдалося зупинити службу через: {Err}. Ви можете зупинити її вручну через менеджер сервісів.",
             "translatorComment": "Copied from source.",
             "placeholders": [
@@ -1778,9 +1778,9 @@
             ]
         },
         {
-            "id": "An update to WireGuard is available. It is highly advisable to update without delay.",
-            "message": "An update to WireGuard is available. It is highly advisable to update without delay.",
-            "translation": "Доступне оновлення WireGuard, доцільне оновлення без затримок.",
+            "id": "An update to AmneziaWG is available. It is highly advisable to update without delay.",
+            "message": "An update to AmneziaWG is available. It is highly advisable to update without delay.",
+            "translation": "Доступне оновлення AmneziaWG, доцільне оновлення без затримок.",
             "translatorComment": "Copied from source."
         },
         {
