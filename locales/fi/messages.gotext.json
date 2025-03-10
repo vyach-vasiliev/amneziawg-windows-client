@@ -98,15 +98,15 @@
             "comment": "Text to insert when combining units of a measure - most languages will translate ‘[UnitSeparator]’ into ‘ ’ (space) to produce lists like ‘2 minuti 30 sekund’, or empty string ‘’ to produce ‘2分30秒’."
         },
         {
-            "id": "About WireGuard",
-            "message": "About WireGuard",
-            "translation": "Tietoa WireGuardista",
+            "id": "About AmneziaWG",
+            "message": "About AmneziaWG",
+            "translation": "Tietoa AmneziaWGista",
             "translatorComment": "Copied from source."
         },
         {
-            "id": "WireGuard logo image",
-            "message": "WireGuard logo image",
-            "translation": "WireGuard logon kuva",
+            "id": "AmneziaWG logo image",
+            "message": "AmneziaWG logo image",
+            "translation": "AmneziaWG logon kuva",
             "translatorComment": "Copied from source."
         },
         {
@@ -342,15 +342,15 @@
             "translatorComment": "Copied from source."
         },
         {
-            "id": "WireGuard Update Available",
-            "message": "WireGuard Update Available",
-            "translation": "WireGuard päivitys saatavilla",
+            "id": "AmneziaWG Update Available",
+            "message": "AmneziaWG Update Available",
+            "translation": "AmneziaWG päivitys saatavilla",
             "translatorComment": "Copied from source."
         },
         {
-            "id": "An update to WireGuard is now available. You are advised to update as soon as possible.",
-            "message": "An update to WireGuard is now available. You are advised to update as soon as possible.",
-            "translation": "WireGuardin päivitys on nyt saatavilla. Sinua kehotetaan päivittämään mahdollisimman pian.",
+            "id": "An update to AmneziaWG is now available. You are advised to update as soon as possible.",
+            "message": "An update to AmneziaWG is now available. You are advised to update as soon as possible.",
+            "translation": "AmneziaWGin päivitys on nyt saatavilla. Sinua kehotetaan päivittämään mahdollisimman pian.",
             "translatorComment": "Copied from source."
         },
         {
