@@ -16,7 +16,7 @@ jobs:
       - name: Build
         run: |
           cd installer || exit /b 1
-          build || exit /b 1
+          ./build.bat || exit /b 1
 
       - name: Get tag version
         id: get_tag
