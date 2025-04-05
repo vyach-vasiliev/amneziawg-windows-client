@@ -13,7 +13,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Build
+      - name: Build apps
+        shell: cmd
+        run: |
+          build || exit /b 1
+
+      - name: Build installers
         shell: cmd
         run: |
           cd installer || exit /b 1
