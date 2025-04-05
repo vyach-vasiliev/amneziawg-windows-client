@@ -1,0 +1,33 @@
+name: Build and Release
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+  push:
+    tags:
+      - "*.*.*"  # e.g. "1.0.0", "2.3.4" etc.
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build
+        run: |
+          cd installer || exit /b 1
+          build || exit /b 1
+
+      - name: Get tag version
+        id: get_tag
+        run: |
+          echo "TAG_VERSION=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
+
+      - name: Upload release assets
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ github.ref }}
+          name: "AmneziaWG ${{ steps.get_tag.outputs.TAG_VERSION }} for Windows"
+          body: "AmneziaWG ${{ steps.get_tag.outputs.TAG_VERSION }} for Windows"
+          files: |
+            installer/dist/*.msi
