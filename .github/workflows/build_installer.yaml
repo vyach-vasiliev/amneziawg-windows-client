@@ -24,16 +24,11 @@ jobs:
           cd installer || exit /b 1
           build || exit /b 1
 
-      - name: Get tag version
-        id: get_tag
-        run: |
-          echo "TAG_VERSION=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
-
       - name: Upload release assets
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: ${{ github.ref }}
-          name: "AmneziaWG ${{ steps.get_tag.outputs.TAG_VERSION }} for Windows"
-          body: "AmneziaWG ${{ steps.get_tag.outputs.TAG_VERSION }} for Windows"
+          tag_name: ${{ github.ref_name }}
+          name: "AmneziaWG ${{ github.ref_name }} for Windows"
+          body: "AmneziaWG ${{ github.ref_name }} for Windows"
           files: |
             installer/dist/*.msi
