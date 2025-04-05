@@ -1,11 +1,7 @@
 name: Build and Release
 
 on:
-  pull_request:
-    types: [opened, synchronize]
-  push:
-    tags:
-      - "*.*.*"  # e.g. "1.0.0", "2.3.4" etc.
+  workflow_dispatch:
 
 jobs:
   build:
