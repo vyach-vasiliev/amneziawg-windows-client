@@ -1,0 +1,33 @@
+name: Build and Release
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch tags
+        run: git fetch --prune --unshallow --tags
+
+      - name: Build apps
+        shell: cmd
+        run: |
+          build || exit /b 1
+
+      - name: Build installers
+        shell: cmd
+        run: |
+          cd installer || exit /b 1
+          build || exit /b 1
+
+      - name: Upload release assets
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ github.ref_name }}
+          name: "AmneziaWG ${{ github.ref_name }} for Windows"
+          body: "AmneziaWG ${{ github.ref_name }} for Windows"
+          files: |
+            installer/dist/*.msi
